@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>On Maps</title>
+        <!-- https://images.unsplash.com/photo-1477322524744-0eece9e79640?dpr=1&auto=format&fit=crop&w=1000&q=80&cs=tinysrgb -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="stylesheet" href="css/uikit.min.css" />
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
+    </head>
+
+    <body>
+        
+  <div class="row" style="height:100%;">
+    <div class="col" style="background-color:transparent;width:100%;height:100%;padding-right: 0px;">
+      <style>
+      /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+      #map {
+        height: 100%;
+      }
+      /* Optional: Makes the sample page fill the window. */
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+  
+  <body>
+    <div id="map"></div>
+    <script>
+      function initMap() {
+        // Styles a map in night mode.
+        var map = new google.maps.Map(document.getElementById('map'), {
+          center: {lat: 17.387140, lng: 78.491684},
+          zoom: 15,
+          styles: [
+            {elementType: 'geometry', stylers: [{color: '#242f3e'}]},
+            {elementType: 'labels.text.stroke', stylers: [{color: '#242f3e'}]},
+            {elementType: 'labels.text.fill', stylers: [{color: '#746855'}]},
+            {
+              featureType: 'administrative.locality',
+              elementType: 'labels.text.fill',
+              stylers: [{color: '#d59563'}]
+            },
+            {
+              featureType: 'poi',
+              elementType: 'labels.text.fill',
+              stylers: [{color: '#d59563'}]
+            },
+            {
+              featureType: 'poi.park',
+              elementType: 'geometry',
+              stylers: [{color: '#263c3f'}]
+            },
+            {
+              featureType: 'poi.park',
+              elementType: 'labels.text.fill',
+              stylers: [{color: '#6b9a76'}]
+            },
+            {
+              featureType: 'road',
+              elementType: 'geometry',
+              stylers: [{color: '#38414e'}]
+            },
+            {
+              featureType: 'road',
+              elementType: 'geometry.stroke',
+              stylers: [{color: '#212a37'}]
+            },
+            {
+              featureType: 'road',
+              elementType: 'labels.text.fill',
+              stylers: [{color: '#9ca5b3'}]
+            },
+            {
+              featureType: 'road.highway',
+              elementType: 'geometry',
+              stylers: [{color: '#746855'}]
+            },
+            {
+              featureType: 'road.highway',
+              elementType: 'geometry.stroke',
+              stylers: [{color: '#1f2835'}]
+            },
+            {
+              featureType: 'road.highway',
+              elementType: 'labels.text.fill',
+              stylers: [{color: '#f3d19c'}]
+            },
+            {
+              featureType: 'transit',
+              elementType: 'geometry',
+              stylers: [{color: '#2f3948'}]
+            },
+            {
+              featureType: 'transit.station',
+              elementType: 'labels.text.fill',
+              stylers: [{color: '#d59563'}]
+            },
+            {
+              featureType: 'water',
+              elementType: 'geometry',
+              stylers: [{color: '#17263c'}]
+            },
+            {
+              featureType: 'water',
+              elementType: 'labels.text.fill',
+              stylers: [{color: '#515c6d'}]
+            },
+            {
+              featureType: 'water',
+              elementType: 'labels.text.stroke',
+              stylers: [{color: '#17263c'}]
+            }
+          ]
+        });
+      }
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA6jy5I6-OIOLGt75N0k-r6j-mREoaBkU4&callback=initMap"
+    async defer></script>
+
+  </div>
+
+
+<!-- AIzaSyA6jy5I6-OIOLGt75N0k-r6j-mREoaBkU4 -->
+
+
+
+
+
+
+
+    <div class="col" style="background-image:url(https://images.pexels.com/photos/305821/pexels-photo-305821.jpeg?w=940&h=650&auto=compress&cs=tinysrgb);height:100%;padding-left: 0px;padding-right: 0px;">
+            <style>
+      /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+      
+      /* Optional: Makes the sample page fill the window. */
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+      .col{
+        background-size: cover;
+        background-repeat: no-repeat;
+      }
+    </style>
+      <nav class="navbar navbar-expand-lg navbar-light" style="background-color: transparent;color:white;margin-left: 0px;">
+  <a class="navbar-brand" href="#" style="padding-top:1rem;padding-bottom: 0.5rem;text-decoration-color: white;font-size: 2rem">ON<span><strong>MAPS</strong></span></a>
+  <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button> -->
+  <div>
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="uk-button uk-button-text" href="" style="padding-top:1rem;padding-bottom: 0.5rem;margin-left: 2rem;margin-right: 2rem;text-decoration-color: white;font-size: 1.2rem">Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="uk-button uk-button-text" href="" style="padding-top:1rem;padding-bottom: 0.5rem;margin-left: 2rem;margin-right: 2rem;text-decoration-color: white;font-size: 1.2rem">Login</a>
+      </li>
+      <li class="nav-item">
+        <a class="uk-button uk-button-text" href="" style="padding-top:1rem;padding-bottom: 0.5rem;margin-left: 2rem;margin-right: 2rem;text-decoration-color: white;font-size: 1.2rem">Sign Up</a>
+      </li>
+      <li class="nav-item">
+        <a class="uk-button uk-button-text" href="" style="padding-top:1rem;padding-bottom: 0.5rem;margin-left: 2rem;margin-right: 2rem;text-decoration-color: white;font-size: 1.2rem">About</a>
+      </li>
+    </ul>
+  </div>
+
+</nav>
+
+  <style type="text/css">
+    @import url(https://fonts.googleapis.com/css?family=Lato:100,300,400,700);
+@import url(https://raw.github.com/FortAwesome/Font-Awesome/master/docs/assets/css/font-awesome.min.css);
+
+body {
+  background: #ddd;
+  font-size: 15px;
+}
+#wrap {
+  margin: 50px 100px;
+  display: inline-block;
+  position: relative;
+  height: 60px;
+  float: right;
+  padding: 0;
+  position: relative;
+}
+
+input[type="text"] {
+  height: 60px;
+  font-size: 1.4rem;
+  display: inline-block;
+  font-weight: 100;
+  border: none;
+  outline: none;
+  color: black;
+  padding: 3px;
+  padding-right: 60px;
+  width: 0px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: none;
+  z-index: 3;
+  transition: width 0.4s cubic-bezier(0, 0.795, 0, 1);
+  cursor: pointer;
+}
+
+input[type="text"]:focus:hover {
+  border-bottom: 1px solid #bbb;
+}
+
+input[type="text"]:focus {
+  width: 30rem;
+  z-index: 1;
+  border-bottom: 1px solid #bbb;
+  cursor: text;
+}
+input[type="submit"] {
+  height:3rem;
+  width:3rem;
+  display: inline-block;
+  color: red;
+  float: right;
+  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAMAAABg3Am1AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAADNQTFRFU1NT9fX1lJSUXl5e1dXVfn5+c3Nz6urqv7+/tLS0iYmJqampn5+fysrK39/faWlp////Vi4ZywAAABF0Uk5T/////////////////////wAlrZliAAABLklEQVR42rSWWRbDIAhFHeOUtN3/ags1zaA4cHrKZ8JFRHwoXkwTvwGP1Qo0bYObAPwiLmbNAHBWFBZlD9j0JxflDViIObNHG/Do8PRHTJk0TezAhv7qloK0JJEBh+F8+U/hopIELOWfiZUCDOZD1RADOQKA75oq4cvVkcT+OdHnqqpQCITWAjnWVgGQUWz12lJuGwGoaWgBKzRVBcCypgUkOAoWgBX/L0CmxN40u6xwcIJ1cOzWYDffp3axsQOyvdkXiH9FKRFwPRHYZUaXMgPLeiW7QhbDRciyLXJaKheCuLbiVoqx1DVRyH26yb0hsuoOFEPsoz+BVE0MRlZNjGZcRQyHYkmMp2hBTIzdkzCTc/pLqOnBrk7/yZdAOq/q5NPBH1f7x7fGP4C3AAMAQrhzX9zhcGsAAAAASUVORK5CYII=)
+    center center no-repeat;
+  text-indent: -10000px;
+  border: none;
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 2;
+  cursor: pointer;
+  opacity: 0.5;
+  cursor: pointer;
+  transition: opacity 0.4s ease;
+}
+
+input[type="submit"]:hover {
+  opacity: 1;
+}
+
+
+  </style>
+  <div class="container" style="margin-top: 2rem;margin-bottom: 5rem">
+
+    <form class="uk-search uk-search-large">
+    <span uk-search-icon></span>
+    <input class="uk-search-input" type="search" placeholder="What're we looking for?" style="width: 15em">
+</form>
+        <!-- <div>
+            <a class="uk-navbar-toggle" uk-search-icon href="#" active></a>
+            <div class="uk-drop" uk-drop="mode: click; pos: left-center; offset: 0">
+                <form class="uk-search uk-search-navbar uk-width-1-1">
+                    <input class="uk-search-input" type="search" placeholder="What're we looking for?   " autofocus>
+                </form>
+            </div>
+        </div> -->
+ <!-- <div id="wrap">
+  <form action="" autocomplete="on">
+  <input id="search" name="search" type="text" placeholder="What're we looking for ?" autofocus><input id="search_submit" value="Rechercher" type="submit">
+  </form>
+</div> -->
+    </div>
+  <div class="uk-card uk-card-default uk-card-body uk-width-1-2@m" style="margin-left: 4rem;width:20em">
+    <h3 class="uk-card-title">Contents</h3>
+    <p>Lorem ipsum <a href="#">dolor</a> sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+</div>
+    </div>
+  </div>
+
+
+        <script src="js/uikit.min.js"></script>
+        <script src="js/uikit-icons.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js" integrity="sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4" crossorigin="anonymous"></script>
+
+	</body>
+</html>

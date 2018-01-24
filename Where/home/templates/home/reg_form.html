@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block title %}
+<title>On Maps | Sign Up</title>
+{% endblock %}
+{% block head %}
+{% endblock %}
+{% block body %}
+<form method="post">
+  <div class="container">
+    <div class="jumbotron" style="background-color:transparent">
+      <h4>Register here.</h4><br>
+      {% csrf_token %}
+      {{ form.as_p }}
+      <div class="container text-center">
+      <button type="submit" class="btn btn-success">Done</button>
+      </div>
+
+    </div>
+  </div>
+
+</form>
+{% endblock %}

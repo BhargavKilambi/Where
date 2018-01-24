@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+
+{% block title %}
+<title>On Maps | Add Goods</title>
+{% endblock %}
+{% block body %}
+<style media="screen">
+  body{
+    height: 100%;
+    background-image: url(https://s3.amazonaws.com/luth-wordpress/wp-content/uploads/2017/06/14111158/shutterstock_271173800.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+</style>
+<body>
+  <div class="container" style="background-color:#ccc">
+    <h3>hey</h3>
+    <div class="row">
+      <div class="col">
+        <form>
+        <fieldset class="uk-fieldset">
+
+            <legend class="uk-legend">Legend</legend>
+
+            <div class="uk-margin">
+                <input class="uk-input" type="text" placeholder="Input">
+            </div>
+
+            <div class="uk-margin">
+                <select class="uk-select">
+                    <option>Option 01</option>
+                    <option>Option 02</option>
+                </select>
+            </div>
+
+            <div class="uk-margin">
+                <textarea class="uk-textarea" rows="5" placeholder="Textarea"></textarea>
+            </div>
+
+            <div class="uk-margin uk-grid-small uk-child-width-auto uk-grid">
+                <label><input class="uk-radio" type="radio" name="radio2" checked> A</label>
+                <label><input class="uk-radio" type="radio" name="radio2"> B</label>
+            </div>
+
+            <div class="uk-margin uk-grid-small uk-child-width-auto uk-grid">
+                <label><input class="uk-checkbox" type="checkbox" checked> A</label>
+                <label><input class="uk-checkbox" type="checkbox"> B</label>
+            </div>
+
+            <div class="uk-margin">
+                <input class="uk-range" type="range" value="2" min="0" max="10" step="0.1">
+            </div>
+
+        </fieldset>
+    </form>
+      </div>
+      <div class="col" style="height:20rem;overflow:scroll">
+        <div class="uk-card uk-card-default uk-card-body uk-width-1-2@m">
+    <h3 class="uk-card-title">Default</h3>
+    <p>Lorem ipsum <a href="#">dolor</a> sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+</div>
+  <br>
+<div class="uk-card uk-card-default uk-card-body uk-width-1-2@m">
+    <h3 class="uk-card-title">Default</h3>
+    <p>Lorem ipsum <a href="#">dolor</a> sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+</div>
+<div class="uk-card uk-card-default uk-card-body uk-width-1-2@m">
+<h3 class="uk-card-title">Default</h3>
+<p>Lorem ipsum <a href="#">dolor</a> sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+</div>
+      </div>
+    </div>
+      </div>
+</body>
+{% endblock %}
