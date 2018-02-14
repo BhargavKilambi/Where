@@ -2,21 +2,23 @@
 {% block title %}
 <title>On Maps | Sign Up</title>
 {% endblock %}
+{% block forpro %}
+{% endblock %}
 {% block head %}
 {% endblock %}
 {% block body %}
-<form method="post">
-  <div class="container">
-    <div class="jumbotron" style="background-color:transparent">
-      <h4>Register here.</h4><br>
-      {% csrf_token %}
-      {{ form.as_p }}
-      <div class="container text-center">
-      <button type="submit" class="btn btn-success">Done</button>
-      </div>
+<style media="screen">
+html,body{
+  font-size: 0.8rem;
+}
+</style>
+<div class="container">
+        <form class="form-control" method="POST" style="background-color:transparent;border-color:transparent">
+          {{form.as_p}}
+    <input type="submit" class="btn btn-secondary" name="button" value="submit" style="background-color:#C70039;color:white;border-color:transparent;margin-bottom:1rem">
+  {% csrf_token %}
+        </form>
 
-    </div>
-  </div>
+</div>
 
-</form>
 {% endblock %}

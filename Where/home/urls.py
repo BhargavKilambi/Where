@@ -12,6 +12,9 @@ urlpatterns = [
     url(r'result/$',views.search,name='result'),
     url(r'about/$',views.about,name='about'),
     url(r'catalog/$',views.editit,name='catalog'),
+    url(r'profile/$',views.myProfile,name='profile'),
+    url(r'catalog/edit_profile$',views.editit,name='edit_profile'),
+    url(r'profile/add_good$',views.addgoods,name='add_good'),
 
 
 ]

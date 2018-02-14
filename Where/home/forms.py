@@ -2,7 +2,7 @@ from django import forms
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.forms import UserChangeForm
-from .models import Places
+from .models import Places,Goods
 
 
 class RegistrationForm(UserCreationForm):
@@ -35,5 +35,15 @@ class EditProfileForm(UserChangeForm):
             'email',
             'first_name',
             'last_name',
-            'password',
+        )
+
+class AddGoodsForm(forms.ModelForm):
+    name = forms.CharField(required=True)
+    price = forms.DecimalField(max_digits=7,decimal_places=2,required=True)
+
+    class Meta:
+        model = Goods
+        fields = (
+            'name',
+            'price',
         )

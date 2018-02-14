@@ -1,7 +1,7 @@
 from django.shortcuts import redirect
 
 def login_redirect(request):
-    return redirect('/home/catalog')
+    return redirect('/profile')
 
 def home(request):
-    return redirect('/home/home')
+    return redirect('/home')

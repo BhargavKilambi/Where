@@ -5,40 +5,9 @@
 {% endblock %}
 {% block head %}
 {% endblock %}
+{% block forpro %}
+{% endblock %}
 {% block body %}
-<!-- <div class="container-fluid text-center">
-  <div class="jumbotron" style="background-color:transparent">
-    {% if user.is_authenticated %}
-    <div class="card" style="border-color:transparent">
-  <div class="card-body">
-    <h5> You're already logged in. Go to your profile.</h5>
-  </div>
-</div>
-    {% else %}
-    <h3>You can login here!</h3><br>
-    <form method="post">
-      {% csrf_token %}
-      {{ form.as_p }}
-      <button type="submit" class="btn btn-success">Login</button>
-    </form><br>
-    <p>Not a User? <span> <a href="/home/register" style="font-style:italic;">Sign Up</a> </span> </p>
-    <hr>
-    {% endif %}
-  </div>
-</div> -->
-
-<!-- need it -->
-
-<!-- <div class="container">
-  <form class="form-signin" method="post" id="login-form">{% csrf_token %}
-          <h2 class="form-signin-heading">{{ message }}</h2>
-          <label for="id_username" class="sr-only">Email address</label>
-          <input type="text" name="username" id="id_username" class="form-control" placeholder="Username" required autofocus> <br>
-          <label for="id_password" class="sr-only">Password</label>
-          <input type="password" name="password" id="id_password" class="form-control" placeholder="Password" required><hr>
-          <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
-        </form>
-</div> -->
 <style media="screen">
 @import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300);
 * {
@@ -300,19 +269,57 @@ transform: translateY(-700px) rotate(600deg);
     {% if form.errors %}
     <h4><strong>Oh Snap! </strong> You've entered wrong username or password. Please note that all fields are case senstive. </h3>
     {% endif %}
+		{% if user.is_authenticated %}
+		<h1 style="color:white">You're already logged in.</h1>
+		<br>
+		{% else %}
 		<h1>Welcome, Login here.</h1>
 
 		<form class="form" method="post">{% csrf_token %}
-			<!-- <input type="text" placeholder="Username">
-			<input type="password" placeholder="Password">
-			<button type="submit" id="login-button">Login</button> -->
       <label for="id_username" class="sr-only">Email address</label>
       <input type="text" name="username" id="id_username" placeholder="Username" required>
       <label for="id_password" class="sr-only">Password</label>
       <input type="password" name="password" id="id_password" placeholder="Password" required>
       <button type="submit">Sign in</button> <br> <hr>
-        <a style="color:#50a3a2;">Not a user? Sign Up</a> <br>
+			<style media="screen">
+				a{
+					color:#50a3a2;
+				}
+				a:hover{
+					color:#50a3a2;
+					text-decoration: none;
+				}
+			</style>
+        <a href="/register">Not a user? Sign Up</a> <br>
+
 		</form>
+		{% endif %}
+		{% if user.is_authenticated %}
+			<form>
+				 <style media="screen">
+			    #qwert{
+						background-color: transparent;
+			    }
+
+			    #qwert:hover{
+						color:#53e3a6;
+						background-color: transparent;
+			    }
+			  </style>
+			  <script>
+			function goBack() {
+			  window.history.back();
+			}
+
+			$(function () {
+			  $('[data-toggle="tooltip"]').tooltip()
+			})
+			</script>
+				<a href="/profile/" id="qwert" style="color:white;background-color:transparent"><i class="ion-android-arrow-back" style="font-size:3rem;background-color:transparent"></i></a>
+
+			</form>
+			{% else %}
+			{% endif %}
   </div>
 
 	<ul class="bg-bubbles">
