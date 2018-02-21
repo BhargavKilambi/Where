@@ -47,3 +47,21 @@ class AddGoodsForm(forms.ModelForm):
             'name',
             'price',
         )
+
+class PlacesForm(forms.ModelForm):
+    title = forms.CharField(max_length=200,required=True)
+    geo_position_field = GeopositionField()
+
+    class Meta:
+        model = Places
+        fields = ('title',
+                'geo_position_field',)
+
+    def save(self,commit=True):
+        user = super(PlacesForm, self).save(commit=False)
+        user.title = self.cleaned_data['title']
+
+        if commit:
+            user.save()
+
+        return user

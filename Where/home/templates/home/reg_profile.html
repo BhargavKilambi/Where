@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block title %}
+<title>On Maps | Sign Up</title>
+{% endblock %}
+{% block forpro %}
+{% endblock %}
+{% block head %}
+{% endblock %}
+{% block body %}
+<style media="screen">
+html,body{
+  font-size: 0.8rem;
+}
+</style>
+<div class="container">
+        <form class="form-control" method="POST" style="background-color:transparent;border-color:transparent">
+          {{form.as_p}}
+    <input type="submit" class="btn btn-secondary" name="button" value="submit" style="background-color:#C70039;color:white;border-color:transparent;margin-bottom:1rem">
+  {% csrf_token %}
+        </form>
+
+</div>
+
+{% endblock %}

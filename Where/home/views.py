@@ -3,6 +3,9 @@ from .models import Places,Goods
 from .forms import RegistrationForm,EditProfileForm,AddGoodsForm
 from django.contrib.auth.decorators import login_required
 from django.db.models import Q
+from geoposition.forms import GeopositionField
+from django import forms
+from django.contrib.auth import authenticate, login
 # Create your views here.
 
 # def home(request):
@@ -31,8 +34,12 @@ def register(request):
     if request.method == 'POST':
         form = RegistrationForm(request.POST)
         if form.is_valid():
-            form.save()
-            return redirect('/profile')
+            new_user = form.save()
+            new_user = authenticate(username=form.cleaned_data['username'],
+                                    password=form.cleaned_data['password1'],
+                                    )
+            login(request, new_user)
+            return redirect('/regloc')
     else:
         form = RegistrationForm()
 
@@ -69,8 +76,48 @@ def edit_profile(request):
 
         if form.is_valid():
             form.save()
-            return redirect('/accounts/profile')
+            return redirect('/profile')
     else:
         form = EditProfileForm(instance = request.user)
         args = {'form': form}
-        return render(request, 'accounts/edit_profile.html', args)
+        return render(request, 'home/edit_profile.html', args)
+
+
+# class TestForm(forms.ModelForm):
+#     geo_position_field = GeopositionField()
+#     title = forms.CharField(max_length=200,required=True)
+#     class Meta:
+#         model = Places
+#         fields = ('geo_position_field',
+#                 'title',)
+#
+#
+# def add_route(request):
+#     if request.method == 'POST':
+#         form = TestForm(request.POST, instance = request.user.places)
+#         if form.is_valid():
+#             good = form.save(commit=False)
+#             good.user = request.user
+#             good.save()
+#             return redirect('/profile')
+#     else:
+#         form = TestForm()
+#
+#
+#     return render(request,'home/reg_profile.html',{'form':form})
+
+
+def editProfile(request):
+    if request.method == 'POST':
+        form = PlacesForm(request.POST,instance=request.user)
+
+        if form.is_valid():
+            t = form.save(commit=False)
+            t.user = request.user
+            t.save()
+            return redirect('/profile')
+
+    else:
+        form = PlacesForm()
+
+    return render(request,'home/reg_profile.html',{'form':form})
