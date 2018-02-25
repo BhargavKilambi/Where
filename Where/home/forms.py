@@ -2,8 +2,8 @@ from django import forms
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.forms import UserChangeForm
-from .models import Places,Goods
-
+from .models import UserProfile,Goods
+from geoposition.fields import GeopositionField
 
 class RegistrationForm(UserCreationForm):
     email = forms.EmailField(required=True)
@@ -35,27 +35,33 @@ class EditProfileForm(UserChangeForm):
             'email',
             'first_name',
             'last_name',
+            'password',
         )
 
 class AddGoodsForm(forms.ModelForm):
     name = forms.CharField(required=True)
     price = forms.DecimalField(max_digits=7,decimal_places=2,required=True)
-
+    #position = GeopositionField
     class Meta:
         model = Goods
         fields = (
             'name',
             'price',
+            #'position',
+            'stock',
+            'out_of'
         )
 
 class PlacesForm(forms.ModelForm):
     title = forms.CharField(max_length=200,required=True)
-    geo_position_field = GeopositionField()
+    position = GeopositionField
 
     class Meta:
-        model = Places
+        model = UserProfile
         fields = ('title',
-                'geo_position_field',)
+                  'des',
+                  'phone',
+                  'position',)
 
     def save(self,commit=True):
         user = super(PlacesForm, self).save(commit=False)

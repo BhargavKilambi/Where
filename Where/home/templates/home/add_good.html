@@ -1,19 +1,41 @@
 {% extends 'base.html' %}
 {% block title %}
-<title>On Maps | Add Goods</title>
+<title>On Maps | Update Goods</title>
 {% endblock %}
 {% block head %}
 {% endblock %}
 {% block body %}
 <div class="container text-center">
+<div class="row">
+  <div class="col">
+    <form class="form-control" method="POST">
+      <h3>Update your goods here</h3>
+      <br>
+      {% csrf_token %}
+      {{form.as_p}}
+      <button type="submit" class="btn btn-primary" name="button">Add</button>
+    </form>
+    <!-- <form class="form-control" method="POST">{% csrf_token %}
+      <label for="id_name" class="sr-only">Name</label>
+      <input type="text" name="name" id="id_name" placeholder="Name" required class="form-control">
+      <label for="id_price" class="sr-only">Price</label>
+      <input type="text" name="price" id="id_price" placeholder="Price" required>
+      <label for="id_position" class="sr-only">Position</label>
+      <input type="text" name="latitide" id="{{form.position.latitide}}" placeholder="latitide" required>
+      <input type="text" name="longitude" id="{{form.position.longitude}}" placeholder="longitude" required>
+      <label for="id_stock" class="sr-only">Stock</label>
+      <input type="text" name="stock" id="id_stock" placeholder="stock" required>
+      <input type="text" name="out_of" id="id_out_of" placeholder="out of" required>
+      <button type="submit" class="btn btn-alert">Add it!</button> <br> <hr>
+    </form> -->
+  </div>
+  <div class="col">
+    <h4>Your location details : </h4>
+    <h5>{{user.userprofile.position.latitude}}</h5>
+    <h5>{{user.userprofile.position.longitude}}</h5>
+  </div>
+</div>
 
-  <form class="form-control" method="POST">
-    <h3>Add your goods here</h3>
-    <br>
-    {% csrf_token %}
-    {{form.as_p}}
-    <button type="submit" class="btn btn-primary" name="button">Add</button>
-  </form>
 </div>
 
 {% endblock %}

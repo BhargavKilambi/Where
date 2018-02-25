@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block title %}
+<title>On Maps | Edit Profile</title>
+{% endblock %}
+{% block head %}
+{% endblock %}
+{% block body %}
+<div class="container text-center">
+  <div class="col">
+    <form class="form-control" method="POST">
+      <h3>Edit or Update your profile</h3>
+      <br>
+      {% csrf_token %}
+      {{form.as_p}}
+      {{p.as_p}}
+      <button type="submit" class="btn btn-primary" name="button">Submit</button>
+    </form>
+  </div>
+</div>
+
+{% endblock %}

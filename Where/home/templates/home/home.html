@@ -137,12 +137,11 @@ google.maps.event.addListenerOnce(map, 'tilesloaded', addMarkers);
 
 function addMarkers() {
         {% for item in items %}
-        {% if item is null %}
-          window.alert("None");
-          var xx = document.getElementById("it");
-          xx.innerHTML = "None"
-        {% endif %}
-        {% for place in item.places.all %}
+        // {% if item is null %}
+        //   window.alert("None");
+        //   var xx = document.getElementById("it");
+        //   xx.innerHTML = "None"
+        // {% endif %}
 
         var image = '{{ STATIC_PREFIX }}'+ 'checkmark.png';
         var icon = {
@@ -152,7 +151,7 @@ function addMarkers() {
     anchor: new google.maps.Point(0, 0) // anchor
 };
         var marker = new google.maps.Marker({
-        position: {lat:{{place.position.latitude}},lng:{{place.position.longitude}}},
+        position: {lat:{{item.user.userprofile.position.latitude}},lng:{{item.user.userprofile.position.longitude}}},
         map: map,
      //icon : icon,
     });
@@ -166,9 +165,13 @@ function addMarkers() {
              var it = document.getElementById("it");
              var text = document.getElementById("text");
              var pl = document.getElementById("pl");
+             var st = document.getElementById("stock");
+             var ph = document.getElementById("ph");
              it.innerHTML = "Item : {{item.name}}"
              text.innerHTML = "Price : &#x20B9; {{item.price}} / item "
-             pl.innerHTML = "{{place.title}}"
+             pl.innerHTML = "{{item.user.userprofile.title}}"
+             ph.innerHTML = "{{item.user.userprofile.phone}}"
+             st.innerHTML = "Stock : {{item.stock}} / {{item.out_of}}"
              map.setZoom(12);
              map.setCenter(marker.getPosition());
 
@@ -184,7 +187,7 @@ function addMarkers() {
 
 
         {% endfor %}
-        {% endfor %}
+
 
 
 
@@ -263,13 +266,26 @@ google.maps.event.addDomListener(window, 'load', initialize);
   </form>
 </div> -->
     </div>
-  <div class="uk-card uk-card-default uk-card-body uk-width-1-2@m" style="margin-left: 4rem;width:20em;font-size:1rem">
-    <h3 id="it">Contents</h3>
-    <hr>
-    <p id="pl">____</p>
-      <h4 id="text">The price and stock of your item will be displayed here.</h4>
-      <h4>Stock</h4>
+    {% if not items and not request.GET.q.strip %}
+    {% else %}
+    {% if not items %}
+    <div class="container">
+      <p>Sorry, nothing found with the name ' {{request.GET.q}} '</p>
     </div>
+
+    {% endif %}
+    {% endif %}
+
+
+    <div class="card" style="width: 18rem;margin-left:2rem">
+  <div class="card-body">
+    <h5 class="card-title" id="it">Contents</h5>
+    <h6 class="card-subtitle mb-2 text-muted" id="pl">_______</h6>
+    <p class="card-text" id="text">The price and stock of your item will be displayed here.</p>
+    <h6 class="card-subtitle mb-2" id="stock">Stock</h6>
+    <h6 class="card-subtitle mb-2 text-muted" id="ph">___</h6>
+  </div>
+</div>
     </div>
   </div>
 

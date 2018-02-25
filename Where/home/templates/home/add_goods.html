@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block title %}
+<title>On Maps | Add Goods</title>
+{% endblock %}
+{% block head %}
+{% endblock %}
+{% block body %}
+<div class="container text-center">
+<div class="row">
+  <div class="col">
+    <form class="form-control" method="POST">
+      <h3>Add your goods here</h3>
+      <br>
+      {% csrf_token %}
+      {{form.as_p}}
+      <button type="submit" class="btn btn-primary" name="button">Add</button>
+    </form>
+  </div>
+  <div class="col">
+    <h4>Your location details : </h4>
+    <h5>{{user.userprofile.position.latitude}}</h5>
+    <h5>{{user.userprofile.position.longitude}}</h5>
+  </div>
+</div>
+
+</div>
+
+{% endblock %}
