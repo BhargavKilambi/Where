@@ -1,12 +1,25 @@
 {% extends 'base.html' %}
+{% block title %}
+<title>On Maps | Profile</title>
+{% endblock %}
 {% block head %}
 {% endblock %}
 {% block body %}
+<style media="screen">
+html{
+  background-image: url("http://www.icanbecreative.com/res/freeweb/2011/04/Earth.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+body{
+  background-color: transparent
+}
+</style>
 <div class="container">
 <div class="row">
   <div class="col">
-    <div class="jumbotron" style="background-color:transparent">
-      <h2 style="color:grey">Profile:</h2>
+    <div class="jumbotron" style="background-color:black;opacity:0.7">
+      <h2  style="color:white">Profile:</h2>
       {% if not place %}
       <div class="container">
         <a href="{% url 'edit_profile' %}" class="btn btn-primary">Add Details</a>
@@ -14,30 +27,49 @@
 
       {% endif %}
       {% for pla in place %}
-      <h3>{{pla.title}}</h3>
-      <h3>{{pla.des}}</h3>
-      <h3>{{pla.phone}}</h3>
+      <h3  style="color:white">{{pla.title}}</h3>
+      <h3  style="color:white">{{pla.des}}</h3>
+      <h3  style="color:white">{{pla.phone}}</h3>
       {% endfor %}
     </div>
 
   </div>
 
-    <div class="col">
+    <div class="col" style="margin-left:10rem">
       <style media="screen">
         div.hey{
           overflow: auto;
           height: 25rem;
         }
+        /* width */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background:#ccc;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background:white;
+}
       </style>
       <div class="container text-center">
-        <h4>Here are all of your products</h4>
+        <h4 style="color:white">Here are all of your products</h4>
         <div class="hey">
           {% for goo in good %}
-          <div class="card" style="width:20rem">
+          <div class="card" style="width:20rem;background-color:black;opacity:0.7">
 <div class="card-body">
-<h5 class="card-title">{{goo.name}}</h5>
-<h5 class="card-title"> &#8377; {{goo.price}}</h5>
-<p class="card-text">Stock : {{goo.stock}}/{{goo.out_of}}</p>
+<h5 class="card-title" style="color:white">{{goo.name}}</h5>
+<h5 class="card-title" style="color:white"> &#8377; {{goo.price}}</h5>
+<p class="card-text" style="color:white">Stock : {{goo.stock}}/{{goo.out_of}}</p>
 <!-- <h5 class="card-title">{{goo.created_date}}</h5> -->
 <a href="{% url 'add_good_with_pk' pk=goo.pk %}" class="card-link" style="color:blue">Update</a>
 <a href="{% url 'delete_good' pk=goo.pk %}" class="card-link" style="color:red">Delete</a>

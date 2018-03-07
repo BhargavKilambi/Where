@@ -7,18 +7,36 @@
 {% block head %}
 {% endblock %}
 {% block body %}
-<style media="screen">
-html,body{
-  font-size: 0.8rem;
-}
-</style>
-<div class="container">
+
+
+  <div class="container text-center">
         <form class="form-control" method="POST" style="background-color:transparent;border-color:transparent">
-          {{form.as_p}}
+          {% csrf_token %}
+          <ul style="list-style:none">
+            <li><label>Username <br>
+              {{form.username}}
+            </label></li>
+            <li><label>First Name <br>
+              {{form.first_name}}
+            </label></li>
+            <li>  <label>E-mail <br>
+                {{form.email}}
+              </label></li>
+            <li><label>Password <br>
+              {{form.password1}}
+            </label></li>
+            <li>  <label>Confirm Password <br>
+                {{form.password2}}
+              </label></li>
+          </ul>
+          <br>
     <input type="submit" class="btn btn-secondary" name="button" value="submit" style="background-color:#C70039;color:white;border-color:transparent;margin-bottom:1rem">
-  {% csrf_token %}
+
         </form>
 
 </div>
+
+
+
 
 {% endblock %}

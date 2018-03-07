@@ -8,7 +8,7 @@ urlpatterns = [
     url(r'home/$',views.show_places,name='places'),
     url(r'register/$',views.register,name='registration'),
     url(r'add_loc/$',views.add_loc,name='add_loc'),
-    url(r'login/$',login, {'template_name': 'home/login.html'}),
+    url(r'login/$',login, {'template_name': 'home/login.html'},name='login'),
     url(r'logout/$',logout, {'template_name': 'home/home.html'}),
     url(r'result/$',views.search,name='result'),
     url(r'about/$',views.about,name='about'),

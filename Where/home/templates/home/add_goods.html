@@ -5,22 +5,42 @@
 {% block head %}
 {% endblock %}
 {% block body %}
-<div class="container text-center">
-<div class="row">
-  <div class="col">
-    <form class="form-control" method="POST">
-      <h3>Add your goods here</h3>
+<style media="screen">
+html{
+  background-image: url("https://cn.pling.com/img/1/a/7/d/5d6291d4f7be91e68597555bc4e86334f80d.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+body{
+  background-color: transparent
+}
+</style>
+<div class="container text-center" style="width:20rem;opacity:0.8;color:white;background-color:transparent">
+    <form class="form-control" method="POST" style="border-color:transparent;width:20rem;color:white;background-color:black;padding-bottom:2rem">
+      <h3 style="color:white">Add your goods here</h3>
       <br>
       {% csrf_token %}
-      {{form.as_p}}
-      <button type="submit" class="btn btn-primary" name="button">Add</button>
+      <div class="input-group mb-3">
+  {{form.name}}
+</div>
+      <div class="input-group mb-3">
+  <div class="input-group-prepend">
+    <span class="input-group-text" id="basic-addon1">&#x20B9;</span>
+  </div>
+  {{form.price}}
+</div>
+<div class="input-group">
+  <div class="input-group-prepend">
+    <span class="input-group-text" id="">Stock</span>
+  </div>
+  {{form.stock}}
+  {{form.out_of}}
+</div>
+<br>
+
+  <button type="submit" class="btn btn-primary" name="button">Add</button>
     </form>
-  </div>
-  <div class="col">
-    <h4>Your location details : </h4>
-    <h5>{{user.userprofile.position.latitude}}</h5>
-    <h5>{{user.userprofile.position.longitude}}</h5>
-  </div>
+
 </div>
 
 </div>
