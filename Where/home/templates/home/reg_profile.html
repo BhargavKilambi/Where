@@ -15,7 +15,7 @@ html,body{
 <div class="container text-center">
     <h3>Further details:</h3>
         <form class="form-control" method="POST" style="background-color:transparent;border-color:transparent">
-          {{form.as_p}}
+        {{form}}
     <input type="submit" class="btn btn-secondary" name="button" value="submit" style="background-color:#C70039;color:white;border-color:transparent;margin-bottom:1rem">
   {% csrf_token %}
         </form>

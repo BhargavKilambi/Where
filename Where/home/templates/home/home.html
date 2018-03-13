@@ -26,6 +26,7 @@
         height: 100%;
         margin: 0;
         padding: 0;
+        overflow-x: hidden;
       }
     </style>
 
@@ -167,11 +168,17 @@ function addMarkers() {
              var pl = document.getElementById("pl");
              var st = document.getElementById("stock");
              var ph = document.getElementById("ph");
+             var place = document.getElementById("exampleModalLongTitle");
+             var desc = document.getElementById("modalText");
+             var mob = document.getElementById("phone");
              it.innerHTML = "Item : {{item.name}}"
              text.innerHTML = "Price : &#x20B9; {{item.price}} / item "
              pl.innerHTML = "{{item.user.userprofile.title}}"
              ph.innerHTML = "{{item.user.userprofile.phone}}"
              st.innerHTML = "Stock : {{item.stock}} / {{item.out_of}}"
+             place.innerHTML = " <strong>{{item.user.userprofile.title}}</strong>"
+             desc.innerHTML = "{{item.user.userprofile.des}}"
+             mob.innerHTML = "{{item.user.userprofile.phone}}"
              map.setZoom(12);
              map.setCenter(marker.getPosition());
 
@@ -250,7 +257,7 @@ google.maps.event.addDomListener(window, 'load', initialize);
 
     <form class="uk-search uk-search-large" method="GET" action="{% url "result" %}" style="width:100%" id="id_form">
     <span uk-search-icon></span>
-    <input class="uk-search-input" type="search" placeholder="What're we looking for?" style="width: 15em;font-size:3rem"  id="q" name="q" value="{{ request.GET.q }}">
+    <input class="uk-search-input" type="search" placeholder="What're we looking for?" style="width: 15em;font-size:3rem"  id="q" name="q" value="{{ request.GET.q }}" required>
 </form>
         <!-- <div>
             <a class="uk-navbar-toggle" uk-search-icon href="#" active></a>
@@ -266,15 +273,7 @@ google.maps.event.addDomListener(window, 'load', initialize);
   </form>
 </div> -->
     </div>
-    {% if not items and not request.GET.q.strip %}
-    {% else %}
-    {% if not items %}
-    <div class="container">
-      <p>Sorry, nothing found with the name ' {{request.GET.q}} '</p>
-    </div>
 
-    {% endif %}
-    {% endif %}
 
 
     <div class="card" style="width: 18rem;margin-left:2rem">
@@ -284,8 +283,45 @@ google.maps.event.addDomListener(window, 'load', initialize);
     <p class="card-text" id="text">The price and stock of your item will be displayed here.</p>
     <h6 class="card-subtitle mb-2" id="stock">Stock</h6>
     <h6 class="card-subtitle mb-2 text-muted" id="ph">___</h6>
+    <!-- Button trigger modal -->
+<a data-toggle="modal" data-target="#exampleModalCenter" style="color:grey">
+  Profile
+</a>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <h4 id="modalText">Description</h4>
+      </div>
+      <div class="modal-footer">
+        <h5 id="phone">Phone</h4>
+      </div>
+    </div>
   </div>
 </div>
+  </div>
+</div>
+
+{% if not items and not request.GET.q.strip %}
+{% else %}
+{% if not items %}
+
+<script type="text/javascript">
+
+  alert("No results for '{{request.GET.q.strip}}'");
+</script>
+{% else %}
+{% endif %}
+{% endif %}
+
     </div>
   </div>
 
